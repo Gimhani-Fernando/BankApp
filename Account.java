@@ -6,26 +6,31 @@ public class Account {
     private int ac_num=0;
 
     public void setData(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter your full name");
-        this.name=sc.next();
-        System.out.println("Enter your NIC number");
-        this.NIC=sc.next();
-        boolean init_bool=true;
+        try{
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter your full name");
+            this.name=sc.next();
+            System.out.println("Enter your NIC number");
+            this.NIC=sc.next();
+            boolean init_bool=true;
+        
+            while(init_bool){
+                System.out.println("Enter the initial amount you wish to provide");
+                float init=sc.nextFloat(); 
 
-        while(init_bool){
-            System.out.println("Enter the initial amount you wish to provide");
-            float init=sc.nextFloat(); 
+                if(init>=500){
+                    System.out.println("Account is successfully created");
+                    this.initial_amount=sc.nextFloat(); init_bool=false;
 
-            if(init>=500){
-                System.out.println("Account is successfully created");
-                this.initial_amount=sc.nextFloat(); init_bool=false;
-
-            }else{
-                System.out.println("Please provide an initial amount more than or equal to 500");
+                }else{
+                    System.out.println("Please provide an initial amount more than or equal to 500");
+                }
             }
         }
-        sc.close();
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
     }
 
     public void getData(){
