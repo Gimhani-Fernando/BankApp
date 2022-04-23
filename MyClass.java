@@ -1,28 +1,34 @@
 import java.util.Scanner;
 public class MyClass{
     public static void main(String args[]) {
-        System.out.println(" Hello! Welcome to Bank Managment App\n ");
-        showOptions();
-        Scanner sc=new Scanner(System.in);
-        int option = sc.nextInt();
-
-        Account x=new Account();
-
-        while(option!=0){
-            switch(option){
-                case 1:
-                    x.setData(); break;
-                case 2:
-                    x.getData();break;
-                default:
-                    System.out.println("Invalid option");
-            }
-            System.out.println("\n\nDo you wish to proceed? ");
+        try{
+            System.out.println(" Hello! Welcome to Bank Managment App\n ");
             showOptions();
-            option = sc.nextInt();
+            Scanner sc=new Scanner(System.in);
+            int option = sc.nextInt();
+
+            Account x=new Account();
+
+            while(option!=0){
+                switch(option){
+                    case 1:
+                        x.setData(); break;
+                    case 2:
+                        x.getData();break;
+                    default:
+                        System.out.println("Invalid option");
+                }
+                System.out.println("\n\nDo you wish to proceed? ");
+                showOptions();
+                option = sc.nextInt();
+            }
+            sc.close();
+            System.out.println("Thank you! Have a nice day...");
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
         }
 
-        System.out.println("Thank you! Have a nice day...");
     }
 
     public static void showOptions(){
