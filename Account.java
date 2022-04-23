@@ -10,7 +10,7 @@ public class Account {
     private int ac_num=0;
 
     Map<String,List<String>> Database=new HashMap<>();
-    List<String> tempList=new ArrayList<>();
+    List tempList=new ArrayList<>();
 
     public void setData(){
         try{
@@ -27,16 +27,16 @@ public class Account {
 
                 if(init>=500){
                     System.out.println("Account is successfully created");
-                    this.initial_amount=sc.nextFloat(); init_bool=false;
+                    this.initial_amount=init; init_bool=false;
 
                 }else{
                     System.out.println("Please provide an initial amount more than or equal to 500");
                 }
             }
             tempList.add(this.name);
-            //tempList.add(this.initial_amount);
+            tempList.add(this.initial_amount);
             Database.put(this.NIC, tempList);
-            tempList.clear();
+            
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -55,11 +55,12 @@ public class Account {
             askID=c.nextLine();
             if (Database.containsKey(askID)){
                 System.out.println("\nWelcome you are my customer and Your Details are\n");
-                System.out.println(Database.get(askID).get(0));
-                System.out.println(Database.get(askID).get(1));
+                System.out.println("Your name is :-"+Database.get(askID).get(0));
+                System.out.printf("Your balance is :-%.3f",Database.get(askID).get(1));
+               
                
             }
-            c.close();
+           
         }
         catch(Exception e){
             System.out.println(e.getMessage());

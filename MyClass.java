@@ -22,7 +22,7 @@ public class MyClass{
                 showOptions();
                 option = sc.nextInt();
             }
-            sc.close();
+            
             System.out.println("Thank you! Have a nice day...");
         }
         catch(Exception e){
