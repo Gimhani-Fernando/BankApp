@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-public class Account {
+public class Bank {
     private String name;
     private String NIC;
     private float initial_amount;
@@ -65,5 +65,30 @@ public class Account {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+
+    void closeAccount(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Your NIC for closing accout");
+        String Nic=sc.nextLine();
+        System.out.println(Nic);
+        if(Database.containsKey(Nic)){
+            System.out.println("Your name is :-"+Database.get(Nic).get(0));
+            System.out.printf("Your balance is :-%.3f",Database.get(Nic).get(1));
+            System.out.println("\nWould you Like to close it type Yes to close account other wise type No");
+            String temp=sc.nextLine();
+            if(temp.equals("Yes")){
+                Database.remove(Nic);
+                System.out.println("Your account has been deleted from our database");
+            }else{
+
+                System.out.println("Okay bye");
+            }
+
+        }else{
+            System.out.println("There is no account with this NIC");
+        }
+
     }
 }

@@ -7,14 +7,16 @@ public class MyClass{
             Scanner sc=new Scanner(System.in);
             int option = sc.nextInt();
 
-            Account x=new Account();
+            Bank BOC=new Bank();
 
             while(option!=0){
                 switch(option){
                     case 1:
-                        x.setData(); break;
+                        BOC.setData(); break;
                     case 2:
-                        x.getData();break;
+                        BOC.getData();break;
+                    case 5:
+                        BOC.closeAccount();
                     default:
                         System.out.println("Invalid option");
                 }
