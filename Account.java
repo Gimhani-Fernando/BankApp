@@ -55,7 +55,9 @@ public class Account {
             askID=c.nextLine();
             if (Database.containsKey(askID)){
                 System.out.println("\nWelcome you are my customer and Your Details are\n");
-                System.out.println("Your name is :"+Database.get(askID).get(0)+"\n"+"Your balance is:-"+Database.get(askID).get(1));
+                System.out.println(Database.get(askID).get(0));
+                System.out.println(Database.get(askID).get(1));
+               
             }
             c.close();
         }
