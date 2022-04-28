@@ -48,14 +48,11 @@ public class Bank {
         
     }
 
-    public void getData(){
-        try{
-            
-
+    public void balanceInquiry(){
+        try{       
             String askID;
-
             // Get data from Map and going to print
-            System.out.println("Enter your correct NIC number");
+            System.out.println("Enter your valid NIC number to access your account?");
             askID=sc.next();
             if (Database.containsKey(askID)){
                 System.out.println("\nWelcome you are my customer and Your Details are\n");
@@ -98,24 +95,34 @@ public class Bank {
         }
 
     }
-  void withdraw(){
+  void withdrawORdeposit(){
     System.out.println("Enter your valid NIC number to access your account?");
     String Nic=sc.next();
 
       if(Database.containsKey(Nic)){
-          double currAm=Database.get(Nic).getInit();
+        double currAm=Database.get(Nic).getInit();
         System.out.println("Your name is :-"+Database.get(Nic).getName());
         System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
-        System.out.println("\nEnter amount that you are going to withdraw?");
-        double temp_amount=sc.nextDouble();
+
+        int option;
+        System.out.println("\nPress 1 if you wish to withdraw\nPress 2 if you wish to deposit");
+        option=sc.nextInt();
+        if(option==1){
+            System.out.println("\nEnter amount that you are going to withdraw?");
+            double temp_amount=sc.nextDouble();
     
-        if(Database.get(Nic).getInit()<temp_amount){
-                System.out.println("There is no sufficient amount to withdraw");
+            if(Database.get(Nic).getInit()<temp_amount){
+                    System.out.println("There is no sufficient amount to withdraw");
+            }else{
+                    currAm=Database.get(Nic).getInit()-temp_amount;
+                    Database.get(Nic).setInit(currAm);
+                    System.out.println("Succesfully withdraw\n");
+                   System.out.printf("Your current balance is :-%.3f",currAm);
+            }
+        }else if(option==2){
+            deposit();
         }else{
-                currAm=temp_amount-Database.get(Nic).getInit();
-                Database.get(Nic).setInit(currAm);
-                System.out.println("Succesfully withdraw\n");
-               System.out.printf("Your current balance is :-%.3f",currAm);
+            System.out.println("Invalid option");
         }
 
       }else{
@@ -136,14 +143,10 @@ public class Bank {
         System.out.println("\nEnter amount that you are going to Deposite?");
         double temp_amount=sc.nextDouble();
     
-        if(Database.get(Nic).getInit()<temp_amount){
-                System.out.println("There is no sufficient amount to withdraw");
-        }else{
-                currAm=temp_amount+Database.get(Nic).getInit();
-                Database.get(Nic).setInit(currAm);
-                System.out.println("Succesfully deposit\n");
-               System.out.printf("Your current balance is :-%.3f",currAm);
-        }
+        currAm=temp_amount+Database.get(Nic).getInit();
+        Database.get(Nic).setInit(currAm);
+        System.out.println("Succesfully deposit\n");
+        System.out.printf("Your current balance is :-%.3f",currAm);
 
       }else{
          
@@ -153,21 +156,17 @@ public class Bank {
   }
 
   void viewAccounts(){
-    System.out.println("Enter your valid NIC number to access your account?");
-    String Nic=sc.next();
     System.out.println("-------------Here our All custome details----------");
-      if(Database.containsKey(Nic)){
-            for(Customer val:Database.values()){
+        for(Customer val:Database.values()){
                 System.out.println("-------------------------------------------------------");
                 System.out.println("name is :-"+val.getName());
                 System.out.printf("balance is :-%.3f",val.getInit());
                 System.out.println("\n-------------------------------------------------------");
-                
-            }
-
+        }
+        /*
       }else{
-        System.out.println("There is no account with this NIC");
-      }
+        System.out.println("There are no account records");
+      }*/
   }
 
   void edit(){
