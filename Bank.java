@@ -181,7 +181,7 @@ public class Bank {
             String temp=sc.next();
             if(temp.equals("Yes")){
                 System.out.println("Type your new name?");
-                String temp2=sc.nextLine();
+                String temp2=sc.next();
                 Database.get(Nic).setName(temp2);
                 System.out.println("Succesfully updated");
 
