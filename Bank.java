@@ -81,7 +81,7 @@ public class Bank {
         String Nic=sc.next();
         if(Database.containsKey(Nic)){
             System.out.println("Your name is :-"+Database.get(Nic).getName());
-            System.out.printf("Your balance is :-",Database.get(Nic).getInit());
+            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
             System.out.println("\nWould you Like to close it type Yes to close account other wise type No");
             String temp=sc.next();
             if(temp.equals("Yes")){
@@ -105,7 +105,7 @@ public class Bank {
       if(Database.containsKey(Nic)){
           double currAm=Database.get(Nic).getInit();
         System.out.println("Your name is :-"+Database.get(Nic).getName());
-        System.out.printf("Your balance is :-",Database.get(Nic).getInit());
+        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
         System.out.println("\nEnter amount that you are going to withdraw?");
         double temp_amount=sc.nextDouble();
     
@@ -115,7 +115,7 @@ public class Bank {
                 currAm=temp_amount-Database.get(Nic).getInit();
                 Database.get(Nic).setInit(currAm);
                 System.out.println("Succesfully withdraw\n");
-               System.out.printf("Your current balance is :-",currAm);
+               System.out.printf("Your current balance is :-%.3f",currAm);
         }
 
       }else{
@@ -132,7 +132,7 @@ public class Bank {
       if(Database.containsKey(Nic)){
           double currAm=Database.get(Nic).getInit();
         System.out.println("Your name is :-"+Database.get(Nic).getName());
-        System.out.printf("Your balance is :-",Database.get(Nic).getInit());
+        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
         System.out.println("\nEnter amount that you are going to Deposite?");
         double temp_amount=sc.nextDouble();
     
@@ -142,7 +142,7 @@ public class Bank {
                 currAm=temp_amount+Database.get(Nic).getInit();
                 Database.get(Nic).setInit(currAm);
                 System.out.println("Succesfully deposit\n");
-               System.out.printf("Your current balance is :-",currAm);
+               System.out.printf("Your current balance is :-%.3f",currAm);
         }
 
       }else{
@@ -160,7 +160,7 @@ public class Bank {
             for(Customer val:Database.values()){
                 System.out.println("-------------------------------------------------------");
                 System.out.println("name is :-"+val.getName());
-                System.out.printf("balance is :-",val.getInit());
+                System.out.printf("balance is :-%.3f",val.getInit());
                 System.out.println("\n-------------------------------------------------------");
                 
             }
