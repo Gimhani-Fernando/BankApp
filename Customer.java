@@ -1,3 +1,4 @@
+
 public class Customer{
     private String name;
     public double initial_amount;
@@ -7,9 +8,10 @@ public class Customer{
     }
   
 
-    public double getInito() {
+    public double getInit() {
         return this.initial_amount;
     }
+
     public void setName(String name) {
         this.name = name;
     }
