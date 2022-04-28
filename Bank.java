@@ -169,5 +169,29 @@ public class Bank {
       }
   }
 
+  void edit(){
+    System.out.println("Enter your valid NIC number to access your account?");
+    String Nic=sc.next();
 
+      if(Database.containsKey(Nic)){
+            System.out.println("You can only edit your name , can not edit your NIC ");
+            System.out.println("Your name is :-"+Database.get(Nic).getName());
+            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInito());
+            System.out.println("\nWould you Like to edit your name if yes , type Yes otherwise type No");
+            String temp=sc.next();
+            if(temp.equals("Yes")){
+                System.out.println("Type your new name?");
+                String temp2=sc.nextLine();
+                Database.get(Nic).setName(temp2);
+                System.out.println("Succesfully updated");
+
+      }else{
+            System.out.println("ok bye");
+      }
+  }else{
+    System.out.println("There is no account with this NIC");
+  }
+
+
+}
 }

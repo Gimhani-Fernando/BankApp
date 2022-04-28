@@ -26,6 +26,9 @@ public class MyClass{
                     case 5:
                         BOC.closeAccount();
                         break;
+                    case 6:
+                     BOC.edit();
+                     break;
                     default:
                         System.out.println("Invalid option");
                 }
