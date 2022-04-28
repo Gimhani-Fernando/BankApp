@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +60,7 @@ public class Bank {
             if (Database.containsKey(askID)){
                 System.out.println("\nWelcome you are my customer and Your Details are\n");
                 System.out.println("Your name is :-"+Database.get(askID).getName());
-                System.out.printf("Your balance is :-%.3f",Database.get(askID).getInito());
+                System.out.printf("Your balance is :-%.3f",Database.get(askID).getInit());
                
                
             }else{
@@ -80,7 +81,7 @@ public class Bank {
         String Nic=sc.next();
         if(Database.containsKey(Nic)){
             System.out.println("Your name is :-"+Database.get(Nic).getName());
-            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInito());
+            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
             System.out.println("\nWould you Like to close it type Yes to close account other wise type No");
             String temp=sc.next();
             if(temp.equals("Yes")){
@@ -102,16 +103,16 @@ public class Bank {
     String Nic=sc.next();
 
       if(Database.containsKey(Nic)){
-          double currAm=Database.get(Nic).getInito();
+          double currAm=Database.get(Nic).getInit();
         System.out.println("Your name is :-"+Database.get(Nic).getName());
-        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInito());
+        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
         System.out.println("\nEnter amount that you are going to withdraw?");
         double temp_amount=sc.nextDouble();
     
-        if(Database.get(Nic).getInito()<temp_amount){
+        if(Database.get(Nic).getInit()<temp_amount){
                 System.out.println("There is no sufficient amount to withdraw");
         }else{
-                currAm=temp_amount-Database.get(Nic).getInito();
+                currAm=temp_amount-Database.get(Nic).getInit();
                 Database.get(Nic).setInit(currAm);
                 System.out.println("Succesfully withdraw\n");
                System.out.printf("Your current balance is :-%.3f",currAm);
@@ -129,16 +130,16 @@ public class Bank {
     String Nic=sc.next();
 
       if(Database.containsKey(Nic)){
-          double currAm=Database.get(Nic).getInito();
+          double currAm=Database.get(Nic).getInit();
         System.out.println("Your name is :-"+Database.get(Nic).getName());
-        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInito());
+        System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
         System.out.println("\nEnter amount that you are going to Deposite?");
         double temp_amount=sc.nextDouble();
     
-        if(Database.get(Nic).getInito()<temp_amount){
+        if(Database.get(Nic).getInit()<temp_amount){
                 System.out.println("There is no sufficient amount to withdraw");
         }else{
-                currAm=temp_amount+Database.get(Nic).getInito();
+                currAm=temp_amount+Database.get(Nic).getInit();
                 Database.get(Nic).setInit(currAm);
                 System.out.println("Succesfully deposit\n");
                System.out.printf("Your current balance is :-%.3f",currAm);
@@ -159,7 +160,7 @@ public class Bank {
             for(Customer val:Database.values()){
                 System.out.println("-------------------------------------------------------");
                 System.out.println("name is :-"+val.getName());
-                System.out.printf("balance is :-%.3f",val.getInito());
+                System.out.printf("balance is :-%.3f",val.getInit());
                 System.out.println("\n-------------------------------------------------------");
                 
             }
@@ -191,7 +192,6 @@ public class Bank {
   }else{
     System.out.println("There is no account with this NIC");
   }
-
 
 }
 }
