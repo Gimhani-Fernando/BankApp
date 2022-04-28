@@ -15,7 +15,7 @@ public class MyClass{
                         BOC.setData(); 
                         break;
                     case 2:
-                        BOC.viewAccounts();
+                        BOC.getData();
                         break;
                     case 3:
                         BOC.withdraw();
@@ -27,8 +27,8 @@ public class MyClass{
                         BOC.closeAccount();
                         break;
                     case 6:
-                     BOC.edit();
-                     break;
+                        BOC.edit();
+                        break;
                     default:
                         System.out.println("Invalid option");
                 }

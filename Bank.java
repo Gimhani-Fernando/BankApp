@@ -56,7 +56,7 @@ public class Bank {
 
             // Get data from Map and going to print
             System.out.println("Enter your correct NIC number");
-            askID=sc.nextLine();
+            askID=sc.next();
             if (Database.containsKey(askID)){
                 System.out.println("\nWelcome you are my customer and Your Details are\n");
                 System.out.println("Your name is :-"+Database.get(askID).getName());
@@ -177,7 +177,7 @@ public class Bank {
       if(Database.containsKey(Nic)){
             System.out.println("You can only edit your name , can not edit your NIC ");
             System.out.println("Your name is :-"+Database.get(Nic).getName());
-            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInito());
+            System.out.printf("Your balance is :-%.3f",Database.get(Nic).getInit());
             System.out.println("\nWould you Like to edit your name if yes , type Yes otherwise type No");
             String temp=sc.next();
             if(temp.equals("Yes")){
