@@ -12,11 +12,17 @@ public class MyClass{
             while(option!=0){
                 switch(option){
                     case 1:
-                        BOC.setData(); break;
+                        BOC.setData(); 
+                        break;
                     case 2:
-                        BOC.getData();break;
+                        BOC.getData();
+                        break;
+                    case 3:
+                        BOC.withdraw();
+                        break;
                     case 5:
                         BOC.closeAccount();
+                        break;
                     default:
                         System.out.println("Invalid option");
                 }

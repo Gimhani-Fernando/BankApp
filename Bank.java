@@ -6,11 +6,12 @@ import java.util.Scanner;
 public class Bank {
     private String name;
     private String NIC;
-    private float initial_amount;
+    private double initial_amount;
     private int ac_num=0;
 
     Map<String,List<String>> Database=new HashMap<>();
-    List tempList=new ArrayList<>();
+    List tempList=new ArrayList();
+    Scanner scan=new Scanner(System.in);
 
     public void setData(){
         try{
@@ -23,7 +24,7 @@ public class Bank {
         
             while(init_bool){
                 System.out.println("Enter the initial amount you wish to provide");
-                float init=sc.nextFloat(); 
+                Double init=sc.nextDouble(); 
 
                 if(init>=500){
                     System.out.println("Account is successfully created");
@@ -59,6 +60,8 @@ public class Bank {
                 System.out.printf("Your balance is :-%.3f",Database.get(askID).get(1));
                
                
+            }else{
+                System.out.println("\nThere is no account with this Nic number");
             }
            
         }
@@ -72,13 +75,13 @@ public class Bank {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Your NIC for closing accout");
         String Nic=sc.nextLine();
-        System.out.println(Nic);
         if(Database.containsKey(Nic)){
             System.out.println("Your name is :-"+Database.get(Nic).get(0));
             System.out.printf("Your balance is :-%.3f",Database.get(Nic).get(1));
             System.out.println("\nWould you Like to close it type Yes to close account other wise type No");
             String temp=sc.nextLine();
             if(temp.equals("Yes")){
+                
                 Database.remove(Nic);
                 System.out.println("Your account has been deleted from our database");
             }else{
@@ -91,4 +94,32 @@ public class Bank {
         }
 
     }
+  void withdraw(){
+    System.out.println("Enter your valid NIC number to access your account?\n");
+    String Nic=scan.nextLine();
+    double currAm=(double)Database.get(Nic).get(1);
+    System.out.println(currAm);
+     
+    //   if(Database.containsKey(Nic)){
+    //     System.out.println("Your name is :-"+Database.get(Nic).get(0));
+    //     System.out.printf("Your balance is :-%.3f",Database.get(Nic).get(1));
+    //     double temp_amount=scan.nextDouble();
+    //     List tempList2=new ArrayList();
+
+    //     if(Database.get(Nic).get(1)<temp_amount){
+    //             System.out.println("There is no sufficient amount to withdraw");
+    //     }else{
+    //         tempList2.add(Database.get(Nic).get(0));
+    //         tempList2.add(Database.get(Nic).get(1)-temp_amount);
+    //         Database.put(Nic, )
+    //             System.out.println("Succesfully withdraw\n");
+    //            System.out.printf("Your current balance is :-%.3f",);
+    //     }
+
+    //   }else{
+
+
+
+    //   }
+  }
 }
